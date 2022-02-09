@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import NextHead from 'next/head'
+import React, { FC } from 'react';
+import NextHead from 'next/head';
 
 interface Props {
-	title?: string
-	description?: string
-	url?: string
-	ogImage?: string
+	title?: string;
+	description?: string;
+	url?: string;
+	ogImage?: string;
 }
 
 const Head: FC<Props> = ({ title = '', description = '', url = '', ogImage = '' }) => (
@@ -14,10 +14,13 @@ const Head: FC<Props> = ({ title = '', description = '', url = '', ogImage = '' 
 		<title>{title}</title>
 		<meta name={'description'} content={description} />
 		<meta name={'viewport'} content={'width=device-width, initial-scale=1'} />
-		<link rel={'icon'} sizes={'192x192'} href={'/static/touch-icon.png'} />
+		<link rel={'icon'} sizes={'192x192'} href={'/img/favicon.png'} />
 		<link rel={'apple-touch-icon'} href={'/static/touch-icon.png'} />
 		<link rel={'mask-icon'} href={'/static/favicon-mask.svg'} color={'#49B882'} />
 		<link rel={'icon'} href={'/favicon.png'} />
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet"/> 
 		<meta property={'og:url'} content={url} />
 		<meta property={'og:title'} content={title} />
 		<meta property={'og:description'} content={description} />
