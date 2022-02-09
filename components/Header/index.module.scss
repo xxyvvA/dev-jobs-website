@@ -32,6 +32,10 @@
           @apply left-[29px] duration-200;
         }
       }
+
+      .slider:hover .shown {
+        @apply bg-lightpurple;
+      }
     }
   }
 }
