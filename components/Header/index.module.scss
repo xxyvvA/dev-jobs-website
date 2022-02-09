@@ -1,0 +1,37 @@
+.header {
+  @apply font-kumbh px-[24px] md:px-[40px] pt-[32px] md:pt-[42px] pb-[72px] md:pb-[86px] bg-cover bg-no-repeat bg-[url("/img/mobile/bg-pattern-header.svg")] md:bg-[url("/img/tablet/bg-pattern-header.svg")];
+
+  .items {
+    @apply flex justify-between items-center;
+
+    h1 {
+      @apply font-bold text-[31.5px] text-white leading-[32px];
+    }
+
+    .mode {
+      @apply flex justify-between items-center gap-4;
+
+      .slider {
+        @apply relative flex bg-white items-center p-[5px] rounded-[12px] gap-[10px];
+
+        input {
+          @apply absolute hidden;
+        }
+
+        label {
+          .radio {
+            @apply w-[14px] h-[14px] rounded-full;
+          }
+        }
+
+        .shown {
+          @apply absolute duration-200 left-[5px] right-[auto] w-[14px] h-[14px] rounded-full bg-purple;
+        }
+
+        .shown.dark {
+          @apply left-[29px] duration-200;
+        }
+      }
+    }
+  }
+}
