@@ -95,6 +95,8 @@ const Home: NextPage = () => {
               </div>
             </div>
           </nav>
+
+          <div className={styles.content}></div>
         </main>
       </div>
     </>
