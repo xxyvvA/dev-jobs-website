@@ -8,6 +8,8 @@ interface props {
 }
 
 const Header: FC<props> = ({ theme, setTheme }) => {
+  const [slider, setSlider] = useState<boolean>(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.items}>
@@ -58,8 +60,14 @@ const Header: FC<props> = ({ theme, setTheme }) => {
             </g>
           </svg>
 
-          <button className={styles.slider} onClick={() => setTheme(!theme)}>
-            <div className={clsx(styles.shown, styles[theme ? "light" : "dark"])}></div>
+          <button
+            className={styles.slider}
+            onClick={() => {
+              setSlider(!slider);
+              setTimeout(() => setTheme(!theme), 200);
+            }}
+          >
+            <div className={clsx(styles.shown, styles[slider ? "dark" : "light"])}></div>
           </button>
 
           <svg className={styles.moon}>
