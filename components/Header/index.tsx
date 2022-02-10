@@ -3,8 +3,8 @@ import styles from "./index.module.scss";
 import clsx from "clsx";
 
 interface props {
-  theme: string;
-  setTheme: Dispatch<SetStateAction<"light" | "dark">>;
+  theme: boolean;
+  setTheme: Dispatch<SetStateAction<boolean>>;
 }
 
 const Header: FC<props> = ({ theme, setTheme }) => {
@@ -13,37 +13,17 @@ const Header: FC<props> = ({ theme, setTheme }) => {
       <div className={styles.items}>
         <h1>devjobs</h1>
         <div className={styles.mode}>
-          <svg className={styles.sun} width="20" height="20">
+          <svg className={styles.sun}>
             <circle r="5" cx="10" cy="10" fill="white" />
             <g className={styles.rays}>
               <g className={styles.vertical}>
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M10,0.62 V3"
-                />
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M10,19.38 V17"
-                />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,0.62 V3" />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,19.38 V17" />
               </g>
 
               <g className={styles.horizontal}>
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M0.8,10 H3"
-                />
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M19.2,10 H17"
-                />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M0.8,10 H3" />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M19.2,10 H17" />
               </g>
 
               <g className={styles["bl-to-tr"]}>
@@ -78,40 +58,11 @@ const Header: FC<props> = ({ theme, setTheme }) => {
             </g>
           </svg>
 
-          <div className={styles.slider}>
-            <input
-              type="radio"
-              name="lightOrDark"
-              value="light"
-              id="light"
-              checked={theme === "light"}
-              onChange={() => setTheme("light")}
-            />
-            <label htmlFor="light">
-              <div className={styles.radio}></div>
-            </label>
+          <button className={styles.slider} onClick={() => setTheme(!theme)}>
+            <div className={clsx(styles.shown, styles[theme ? "light" : "dark"])}></div>
+          </button>
 
-            <input
-              type="radio"
-              name="lightOrDark"
-              value="dark"
-              id="dark"
-              checked={theme === "dark"}
-              onChange={() => setTheme("dark")}
-            />
-            <label htmlFor="dark">
-              <div className={styles.radio}></div>
-            </label>
-
-            <div
-              className={clsx(
-                styles.shown,
-                styles[theme === "light" ? "light" : "dark"]
-              )}
-            ></div>
-          </div>
-
-          <svg className={styles.moon} width="20" height="20">
+          <svg className={styles.moon}>
             <circle fill="white" cx="10" cy="10" r="6" />
             <circle fill="#939BF4" cx="11.8" cy="8.85" r="4" />
           </svg>

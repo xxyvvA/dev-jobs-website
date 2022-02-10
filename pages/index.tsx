@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import clsx from "clsx";
 
 const Home: NextPage = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<boolean>(true);
 
   return (
     <>

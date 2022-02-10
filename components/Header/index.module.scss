@@ -1,5 +1,6 @@
+/* --------------------------------- Default -------------------------------- */
 .header {
-  @apply font-kumbh px-[24px] md:px-[40px] pt-[32px] md:pt-[42px] pb-[72px] md:pb-[86px] bg-cover bg-no-repeat bg-[url("/img/mobile/bg-pattern-header.svg")] md:bg-[url("/img/tablet/bg-pattern-header.svg")];
+  @apply font-kumbh px-[24px] pt-[32px]  pb-[72px]  bg-cover bg-no-repeat bg-[url("/img/mobile/bg-pattern-header.svg")];
 
   .items {
     @apply flex justify-between items-center;
@@ -11,30 +12,61 @@
     .mode {
       @apply flex justify-between items-center gap-4;
 
+      svg {
+        @apply w-[20px] h-[20px];
+      }
+
       .slider {
-        @apply relative flex bg-white items-center p-[5px] rounded-[12px] gap-[10px];
-
-        input {
-          @apply absolute hidden;
-        }
-
-        label {
-          .radio {
-            @apply w-[14px] h-[14px] rounded-full;
-          }
-        }
+        @apply bg-white items-center p-[5px] rounded-[12px] w-[48px] h-[24px];
 
         .shown {
-          @apply absolute duration-200 left-[5px] right-[auto] w-[14px] h-[14px] rounded-full bg-purple;
+          @apply w-[14px] duration-200 h-[14px] bg-purple rounded-full;
         }
 
         .shown.dark {
-          @apply left-[29px] duration-200;
+          @apply translate-x-[24px];
         }
       }
 
       .slider:hover .shown {
         @apply bg-lightpurple;
+      }
+    }
+  }
+}
+
+/* ------------------------------ Screen: 768px ----------------------------- */
+@media screen and (min-width: 768px) {
+  .header {
+    @apply px-[40px] pt-[42px] pb-[86px] bg-[url("/img/tablet/bg-pattern-header.svg")];
+  }
+}
+
+/* ----------------------------- Screen: 1440px ----------------------------- */
+@media screen and (min-width: 1440px) {
+  .header {
+    @apply px-[165px] pt-[45px] pb-[85px] bg-[url("/img/desktop/bg-pattern-header.svg")];
+  }
+}
+
+/* ----------------------------- Screen: 1920px ----------------------------- */
+@media screen and(min-width: 1920px) {
+  .header {
+    @apply pt-[60px] pb-[120px];
+
+    .items {
+      h1 {
+        @apply text-[45px];
+      }
+
+      .mode {
+        .slider {
+          @apply h-[34.3px] w-[68.6px] p-[7.143px] rounded-[17.5px];
+
+          .shown {
+            @apply w-[20px] h-[20px];
+          }
+        }
       }
     }
   }
