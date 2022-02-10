@@ -78,7 +78,9 @@ const Home: NextPage = () => {
                           />
                         </svg>
                       </div>
-                      Full Time<span className={styles.only}>Only</span>
+                      <p>
+                        Full Time&nbsp;<span className={styles.only}>Only</span>
+                      </p>
                     </label>
                   </div>
                   <button

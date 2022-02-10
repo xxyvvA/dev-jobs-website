@@ -1,35 +1,37 @@
 /* --------------------------------- Default -------------------------------- */
-.header {
-  @apply font-kumbh px-[24px] pt-[32px]  pb-[72px]  bg-cover bg-no-repeat bg-[url("/img/mobile/bg-pattern-header.svg")];
+@media screen and(min-width:0px) {
+  .header {
+    @apply font-kumbh px-[24px] pt-[32px]  pb-[72px]  bg-cover bg-no-repeat bg-[url("/img/mobile/bg-pattern-header.svg")];
 
-  .items {
-    @apply flex justify-between items-center;
+    .items {
+      @apply flex justify-between items-center;
 
-    h1 {
-      @apply font-bold text-[31.5px] text-white leading-[32px];
-    }
-
-    .mode {
-      @apply flex justify-between items-center gap-4;
-
-      svg {
-        @apply w-[20px] h-[20px];
+      h1 {
+        @apply font-bold text-[31.5px] text-white leading-[32px];
       }
 
-      .slider {
-        @apply bg-white items-center p-[5px] rounded-[12px] w-[48px] h-[24px];
+      .mode {
+        @apply flex justify-between items-center gap-4;
 
-        .shown {
-          @apply w-[14px] duration-200 h-[14px] bg-purple rounded-full;
+        svg {
+          @apply w-[20px] h-[20px];
         }
 
-        .shown.dark {
-          @apply translate-x-[24px];
-        }
-      }
+        .slider {
+          @apply bg-white items-center p-[5px] rounded-[12px] w-[48px] h-[24px];
 
-      .slider:hover .shown {
-        @apply bg-lightpurple;
+          .shown {
+            @apply w-[14px] duration-200 h-[14px] bg-purple rounded-full;
+          }
+
+          .shown.dark {
+            @apply translate-x-[24px];
+          }
+        }
+
+        .slider:hover .shown {
+          @apply bg-lightpurple;
+        }
       }
     }
   }
