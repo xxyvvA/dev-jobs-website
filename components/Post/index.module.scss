@@ -1,2 +1,34 @@
-.container {
+/* --------------------------------- Default -------------------------------- */
+@media screen and (min-width: 0px) {
+  .container {
+    @apply bg-white rounded-[6px] p-[32px] pt-[50px] relative flex flex-col gap-[40px];
+
+    .logo {
+      @apply absolute flex justify-center items-center top-[-25px] w-[50px] h-[50px] rounded-[15px];
+    }
+
+    .information {
+      @apply flex flex-col gap-[12px];
+
+      p:not(.position) {
+        @apply text-grey leading-[20px];
+      }
+
+      .position {
+        @apply font-bold text-[20px] leading-[25px];
+      }
+    }
+
+    .location {
+      @apply font-bold leading-[17px] text-purple self-start;
+    }
+  }
+
+  .container.dark {
+    @apply bg-blue;
+
+    .information {
+      @apply text-white;
+    }
+  }
 }

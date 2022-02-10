@@ -3,7 +3,9 @@ import type { NextPage } from "next";
 import Head from "../components/Head";
 import styles from "../styles/Home.module.scss";
 import Header from "../components/Header";
+import Post from "../components/Post";
 import clsx from "clsx";
+import data from "../data.json";
 
 const Home: NextPage = () => {
   const [theme, setTheme] = useState<boolean>(true);
@@ -96,7 +98,22 @@ const Home: NextPage = () => {
             </div>
           </nav>
 
-          <div className={styles.content}></div>
+          <div className={styles.content}>
+            {data.map((post) => {
+              return (
+                <Post
+                  theme={theme}
+                  logo={post.logo}
+                  logobg={post.logoBackground}
+                  position={post.position}
+                  postedAt={post.postedAt}
+                  contract={post.contract}
+                  company={post.company}
+                  location={post.location}
+                />
+              );
+            })}
+          </div>
         </main>
       </div>
     </>

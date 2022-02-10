@@ -1,10 +1,10 @@
 /* --------------------------------- Default -------------------------------- */
 @media screen and (min-width: 0px) {
   .home {
-    @apply h-full font-kumbh;
+    @apply h-fit font-kumbh bg-[#F4F6F8];
 
     .main {
-      @apply px-[24px] relative top-[-40px];
+      @apply px-[24px] relative top-[-40px] flex flex-col gap-[57px];
 
       .searchBar {
         @apply p-4 rounded-[6px] pl-[24px] bg-white;
@@ -30,7 +30,7 @@
         }
 
         .container {
-          @apply fixed w-full h-full hidden bg-portalbg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+          @apply fixed z-10 w-full h-full hidden bg-portalbg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
 
           .filter {
             @apply bg-white relative max-w-[327px] rounded-[6px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
@@ -96,6 +96,10 @@
         .container.open {
           @apply block;
         }
+      }
+
+      .content {
+        @apply flex flex-col gap-[50px];
       }
     }
   }
