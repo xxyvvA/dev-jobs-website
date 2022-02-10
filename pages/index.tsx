@@ -12,7 +12,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Head />
-      <div className={clsx(styles.home, !theme && styles.dark, filter && styles.portal)}>
+      <div
+        className={clsx(
+          styles.home,
+          !theme && styles.dark,
+          filter && styles.portal
+        )}
+      >
         <Header theme={theme} setTheme={setTheme} />
         <main className={styles.main}>
           <nav className={styles.searchBar}>
@@ -33,7 +39,10 @@ const Home: NextPage = () => {
               <input type="text" placeholder="Filter by title..." />
 
               <div className={styles.icons}>
-                <button className={styles.filterIcon} onClick={() => setFilter(true)}></button>
+                <button
+                  className={styles.filterIcon}
+                  onClick={() => setFilter(true)}
+                ></button>
                 <button className={styles.glassIcon}></button>
               </div>
             </div>
@@ -44,9 +53,12 @@ const Home: NextPage = () => {
                 setFilter(false);
               }}
             >
-              <div className={styles.filter} onClick={(event) => event.stopPropagation()}>
+              <div
+                className={styles.filter}
+                onClick={(event) => event.stopPropagation()}
+              >
                 <div className={styles.location}>
-                  <svg className={styles.pin} width="17" height="24">
+                  <svg className={styles.pin}>
                     <path d="M8.5,24 L15,15 A 8.2 8.2 0 1 0 2 15 Z" />
                     <circle r="3" cx="8.5" cy="10" />
                   </svg>
@@ -59,7 +71,11 @@ const Home: NextPage = () => {
                     <label htmlFor="full-time">
                       <div className={styles.box}>
                         <svg className={styles.mark}>
-                          <path strokeWidth="2" fill="none" d="M6.5,13 L10,16.5 L18,8" />
+                          <path
+                            strokeWidth="2"
+                            fill="none"
+                            d="M6.5,13 L10,16.5 L18,8"
+                          />
                         </svg>
                       </div>
                       Full Time<span className={styles.only}>Only</span>

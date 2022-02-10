@@ -38,6 +38,8 @@
             @apply p-[24px] flex gap-4 border-b border-border;
 
             .pin {
+              @apply w-[17px] h-[24px];
+
               path {
                 @apply fill-purple;
               }
@@ -74,7 +76,7 @@
               label {
                 @apply flex gap-4 font-bold font-kumbh select-none cursor-pointer;
                 .box {
-                  @apply w-[24px] h-[24px] bg-checkbox rounded-[3px] overflow-hidden;
+                  @apply min-w-[24px] w-[24px] h-[24px] bg-checkbox rounded-[3px] overflow-hidden;
 
                   svg {
                     @apply w-full h-full;
@@ -153,4 +155,101 @@
 
 /* ------------------------------ Screen: 768px ----------------------------- */
 @media screen and (min-width: 768px) {
+  .home {
+    @apply h-full bg-white;
+
+    .main {
+      @apply px-[40px];
+
+      .searchBar {
+        @apply flex justify-center p-0 pr-4 pl-[24px];
+
+        .search {
+          @apply flex justify-start items-center gap-4 pr-[52px];
+
+          .magnifyingGlass {
+            @apply static block min-w-[20px] w-[20px] h-[20px];
+
+            .glass {
+              circle {
+                @apply first:fill-purple last:fill-white;
+              }
+            }
+
+            .handle {
+              path {
+                @apply stroke-purple fill-purple even:stroke-0;
+              }
+            }
+          }
+
+          input {
+            @apply w-[105px];
+          }
+
+          .icons {
+            @apply absolute hidden;
+          }
+        }
+
+        .container {
+          @apply static w-[auto] h-[auto] block bg-[transparent] transform-none translate-x-0 translate-y-0;
+
+          .filter {
+            @apply static flex justify-between bg-[transparent] max-w-none rounded-none transform-none translate-x-0 translate-y-0;
+
+            .location {
+              @apply p-0 px-[24px] flex items-center border-b-0 border-l border-r border-border gap-4;
+
+              .pin {
+                @apply min-w-[17px];
+              }
+
+              input {
+                @apply max-w-[135px];
+              }
+            }
+
+            .fullTime {
+              @apply p-0 pl-[20px] flex-row justify-center items-center py-4 gap-[28px];
+
+              .check {
+                input {
+                  @apply absolute hidden;
+                }
+
+                label {
+                  @apply text-[13px] items-center;
+
+                  span {
+                    @apply absolute hidden;
+                  }
+                }
+              }
+
+              .search {
+                @apply text-white leading-[20px] p-[14px];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.home.dark {
+  .main {
+    .searchBar {
+      .search {
+        .magnifyingGlass {
+          .glass {
+            circle {
+              @apply last:fill-blue;
+            }
+          }
+        }
+      }
+    }
+  }
 }
