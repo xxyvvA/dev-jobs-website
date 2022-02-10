@@ -170,7 +170,7 @@
           @apply flex justify-start items-center gap-4 pr-[52px];
 
           .magnifyingGlass {
-            @apply static block min-w-[20px] w-[20px] h-[20px];
+            @apply static block min-w-[24px] w-[24px] h-[24px];
 
             .glass {
               circle {
@@ -180,7 +180,7 @@
 
             .handle {
               path {
-                @apply stroke-purple fill-purple even:stroke-0;
+                @apply stroke-purple fill-purple first:stroke-[1.36px] last:stroke-[2.9px] even:stroke-0;
               }
             }
           }
