@@ -14,13 +14,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head />
-      <div
-        className={clsx(
-          styles.home,
-          !theme && styles.dark,
-          filter && styles.portal
-        )}
-      >
+      <div className={clsx(styles.home, !theme && styles.dark)}>
         <Header theme={theme} setTheme={setTheme} />
         <main className={styles.main}>
           <nav className={styles.searchBar}>

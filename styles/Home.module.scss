@@ -10,7 +10,7 @@
         @apply p-4 rounded-[6px] pl-[24px] bg-white;
 
         .search {
-          @apply flex justify-between;
+          @apply flex justify-between gap-[10px];
 
           .magnifyingGlass {
             @apply absolute hidden;
@@ -110,6 +110,7 @@
     .main {
       .searchBar {
         @apply bg-blue;
+
         .search {
           @apply bg-blue;
 
@@ -148,22 +149,11 @@
       }
     }
   }
-
-  .home.portal {
-    .main {
-      .searchBar {
-        .filter {
-        }
-      }
-    }
-  }
 }
 
 /* ------------------------------ Screen: 768px ----------------------------- */
 @media screen and (min-width: 768px) {
   .home {
-    @apply h-full bg-white;
-
     .main {
       @apply px-[40px];
 
@@ -240,6 +230,10 @@
           }
         }
       }
+
+      .content {
+        @apply grid grid-cols-2 gap-y-[65px] gap-x-[11px];
+      }
     }
   }
 
@@ -268,6 +262,7 @@
 
       .searchBar {
         @apply justify-between;
+
         .search {
           @apply p-0;
 
@@ -307,6 +302,10 @@
             }
           }
         }
+      }
+
+      .content {
+        @apply grid-cols-3 gap-x-[30px];
       }
     }
   }
