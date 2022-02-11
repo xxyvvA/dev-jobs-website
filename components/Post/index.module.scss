@@ -1,7 +1,7 @@
 /* --------------------------------- Default -------------------------------- */
 @media screen and (min-width: 0px) {
   .container {
-    @apply bg-white rounded-[6px] p-[32px] pt-[50px] relative flex flex-col gap-[40px];
+    @apply bg-white rounded-[6px] p-[32px] pt-[50px] relative z-0 flex flex-col gap-[40px];
 
     .logo {
       @apply absolute flex justify-center items-center top-[-25px] w-[50px] h-[50px] rounded-[15px];
@@ -20,7 +20,7 @@
     }
 
     .location {
-      @apply font-bold leading-[17px] text-purple self-start;
+      @apply font-bold leading-[17px] relative z-10 text-purple self-start;
     }
   }
 

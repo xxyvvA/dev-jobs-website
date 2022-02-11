@@ -266,4 +266,10 @@
       }
     }
   }
+
+  .jobPage {
+    .main {
+      @apply px-[355px];
+    }
+  }
 }

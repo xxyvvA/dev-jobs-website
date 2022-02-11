@@ -2,6 +2,7 @@ import { FC } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 import NextLink from "next/link";
+import Link from "next/link";
 
 interface Props {
   id: number;
@@ -26,11 +27,8 @@ const Post: FC<Props> = ({
   company,
   location,
 }) => {
-  const link = location.split("");
-  const href = link.map((item) => (item === " " ? "+" : item)).join("");
-
   return (
-    <NextLink href={`/${id}`} passHref>
+    <Link href={`/${id}`}>
       <a className={clsx(styles.container, !theme && styles.dark)}>
         <div className={styles.logo} style={{ backgroundColor: logobg }}>
           <img src={logo} />
@@ -46,14 +44,9 @@ const Post: FC<Props> = ({
           <p className={styles.company}>{company}</p>
         </div>
 
-        <a
-          className={styles.location}
-          href={`https://www.google.com/search?client=?-b-1-d&q=${href}`}
-        >
-          {location}
-        </a>
+        <p className={styles.location}>{location}</p>
       </a>
-    </NextLink>
+    </Link>
   );
 };
 

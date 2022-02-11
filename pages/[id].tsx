@@ -44,10 +44,12 @@ const JobPage: NextPage<Props> = ({
   const [theme, setTheme] = useState(true);
 
   const name = company.split("").filter((item) => item !== " ");
+  const link = location.split("");
+  const href = link.map((item) => (item === " " ? "+" : item)).join("");
 
   return (
     <>
-      <Head />
+      <Head title={`${company} - ${position}`} />
       <div className={clsx(styles.jobPage, !theme && styles.dark)}>
         <Header theme={theme} setTheme={setTheme} />
 
@@ -79,7 +81,12 @@ const JobPage: NextPage<Props> = ({
                   {postedAt} &#x2022; {contract}
                 </p>
                 <p className={styles.position}>{position}</p>
-                <p className={styles.location}>{location}</p>
+                <a
+                  className={styles.location}
+                  href={`https://www.google.com/search?client=?-b-1-d&q=${href}`}
+                >
+                  {location}
+                </a>
               </div>
               <a className={styles.apply} href={apply}>
                 <button>Apply Now</button>

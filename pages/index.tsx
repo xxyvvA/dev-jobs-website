@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head />
+      <Head title={"devjobs"} />
       <div className={clsx(styles.home, !theme && styles.dark)}>
         <Header theme={theme} setTheme={setTheme} />
         <main className={styles.main}>
