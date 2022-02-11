@@ -31,7 +31,7 @@ const Post: FC<Props> = ({
     <Link href={`/${id}`}>
       <a className={clsx(styles.container, !theme && styles.dark)}>
         <div className={styles.logo} style={{ backgroundColor: logobg }}>
-          <img src={logo} />
+          <img src={logo} alt={`${company} logo`} />
         </div>
 
         <div className={styles.information}>
