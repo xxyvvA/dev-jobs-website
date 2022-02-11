@@ -27,7 +27,7 @@ interface Requirements {
   items: string[];
 }
 
-const Home: NextPage<Props> = ({
+const JobPage: NextPage<Props> = ({
   company,
   logo,
   logoBackground,
@@ -126,7 +126,7 @@ const Home: NextPage<Props> = ({
   );
 };
 
-export default Home;
+export default JobPage;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const job = data.find((devJob) => devJob.id === Number(context.query.id));

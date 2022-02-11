@@ -114,6 +114,58 @@
       }
     }
   }
+
+  .jobPage.dark {
+    @apply bg-black;
+
+    .main {
+      .company {
+        @apply bg-blue;
+
+        .nameLink {
+          .name {
+            @apply text-white;
+          }
+        }
+      }
+
+      .content {
+        @apply bg-blue;
+
+        .jobHeader {
+          .information {
+            .position {
+              @apply text-white;
+            }
+          }
+        }
+
+        .jobInfo {
+          .description {
+            @apply text-grey;
+          }
+
+          .info {
+            .section {
+              @apply text-white;
+            }
+
+            .container {
+              p {
+                @apply text-grey;
+              }
+
+              ul {
+                li {
+                  @apply text-grey;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* ------------------------------ Screen: 768px ----------------------------- */
