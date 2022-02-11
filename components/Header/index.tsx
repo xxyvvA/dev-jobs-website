@@ -2,12 +2,12 @@ import { Dispatch, FC, SetStateAction, useState } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 
-interface props {
+interface Props {
   theme: boolean;
   setTheme: Dispatch<SetStateAction<boolean>>;
 }
 
-const Header: FC<props> = ({ theme, setTheme }) => {
+const Header: FC<Props> = ({ theme, setTheme }) => {
   const [slider, setSlider] = useState<boolean>(false);
 
   return (

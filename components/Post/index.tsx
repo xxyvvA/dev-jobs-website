@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 
-interface props {
+interface Props {
   theme: boolean;
   logo: string;
   logobg: string;
@@ -13,7 +13,7 @@ interface props {
   location: string;
 }
 
-const Post: FC<props> = ({
+const Post: FC<Props> = ({
   theme,
   logo,
   logobg,

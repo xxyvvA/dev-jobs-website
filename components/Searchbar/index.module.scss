@@ -1,0 +1,270 @@
+/* --------------------------------- Default -------------------------------- */
+@media screen and (min-width: 0px) {
+  .searchBar {
+    @apply p-4 rounded-[6px] pl-[24px] bg-white;
+
+    .search {
+      @apply flex justify-between gap-[10px];
+
+      .magnifyingGlass {
+        @apply absolute hidden;
+      }
+
+      input {
+        @apply outline-none w-full bg-[transparent];
+      }
+
+      .icons {
+        @apply flex gap-[10px];
+
+        button {
+          @apply w-[48px] h-[48px] bg-purple rounded-[5px];
+        }
+      }
+    }
+
+    .container {
+      @apply fixed z-10 w-full h-full hidden bg-portalbg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+
+      .filter {
+        @apply bg-white relative max-w-[327px] rounded-[6px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+
+        .location {
+          @apply p-[24px] flex gap-4 border-b border-border;
+
+          .pin {
+            @apply w-[17px] h-[24px];
+
+            path {
+              @apply fill-purple;
+            }
+
+            circle {
+              @apply fill-white;
+            }
+          }
+
+          input {
+            @apply outline-none bg-[transparent];
+          }
+        }
+
+        .fullTime {
+          @apply p-[24px] flex flex-col  gap-[24px];
+
+          .check {
+            input {
+              @apply absolute hidden;
+            }
+
+            input:checked + label {
+              .box {
+                svg {
+                  @apply bg-purple;
+                  path {
+                    @apply stroke-white;
+                  }
+                }
+              }
+            }
+
+            label {
+              @apply flex gap-4 font-bold font-kumbh select-none cursor-pointer;
+              .box {
+                @apply min-w-[24px] w-[24px] h-[24px] bg-checkbox rounded-[3px] overflow-hidden;
+
+                svg {
+                  @apply w-full h-full;
+                }
+              }
+            }
+          }
+
+          .search {
+            @apply bg-purple hover:bg-lightpurple rounded-[5px] font-kumbh font-bold text-white leading-[22px] py-[13px] px-[114px];
+          }
+        }
+      }
+    }
+
+    .container.open {
+      @apply block;
+    }
+  }
+
+  .searchBar.dark {
+    @apply bg-blue;
+
+    .search {
+      @apply bg-blue;
+
+      input {
+        @apply caret-purple text-white;
+      }
+    }
+
+    .filter {
+      @apply bg-blue;
+
+      .location {
+        .pin {
+          circle {
+            @apply fill-blue;
+          }
+        }
+
+        input {
+          @apply caret-purple text-white;
+        }
+      }
+
+      .fullTime {
+        .check {
+          label {
+            @apply text-white;
+
+            .box {
+              @apply bg-checkDark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------ Screen: 768px ----------------------------- */
+@media screen and (min-width: 768px) {
+  .searchBar {
+    @apply flex justify-center p-0 pr-4 pl-[24px];
+
+    .search {
+      @apply flex justify-start items-center gap-4 pr-[52px];
+
+      .magnifyingGlass {
+        @apply static block min-w-[24px] w-[24px] h-[24px];
+
+        .glass {
+          circle {
+            @apply first:fill-purple last:fill-white;
+          }
+        }
+
+        .handle {
+          path {
+            @apply stroke-purple fill-purple first:stroke-[1.36px] last:stroke-[2.9px] even:stroke-0;
+          }
+        }
+      }
+
+      input {
+        @apply w-[105px];
+      }
+
+      .icons {
+        @apply absolute hidden;
+      }
+    }
+
+    .container {
+      @apply static w-[auto] h-[auto] block bg-[transparent] transform-none translate-x-0 translate-y-0;
+
+      .filter {
+        @apply static flex justify-between bg-[transparent] max-w-none rounded-none transform-none translate-x-0 translate-y-0;
+
+        .location {
+          @apply p-0 px-[24px] flex items-center border-b-0 border-l border-r border-border gap-4;
+
+          .pin {
+            @apply min-w-[17px];
+          }
+
+          input {
+            @apply max-w-[135px];
+          }
+        }
+
+        .fullTime {
+          @apply p-0 pl-[20px] flex-row justify-center items-center py-4 gap-[28px];
+
+          .check {
+            input {
+              @apply absolute hidden;
+            }
+
+            label {
+              @apply text-[13px] items-center;
+
+              span {
+                @apply absolute hidden;
+              }
+            }
+          }
+
+          .search {
+            @apply text-white leading-[20px] p-[14px];
+          }
+        }
+      }
+    }
+  }
+
+  .searchBar.dark {
+    .search {
+      .magnifyingGlass {
+        .glass {
+          circle {
+            @apply last:fill-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------- Screen: 1440px ----------------------------- */
+@media screen and (min-width: 1440px) {
+  .searchBar {
+    @apply justify-between;
+
+    .search {
+      @apply p-0;
+
+      input {
+        @apply w-[360px];
+      }
+    }
+
+    .container {
+      .filter {
+        .location {
+          @apply px-[24px];
+
+          input {
+            @apply min-w-[220px];
+          }
+        }
+
+        .fullTime {
+          @apply pl-[32px];
+
+          .check {
+            label {
+              p {
+                @apply flex;
+
+                span {
+                  @apply block static;
+                }
+              }
+            }
+          }
+
+          .search {
+            @apply py-4 px-[35.5px];
+          }
+        }
+      }
+    }
+  }
+}
