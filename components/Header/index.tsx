@@ -1,6 +1,7 @@
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
+import NextLink from "next/link";
 
 interface Props {
   theme: boolean;
@@ -13,19 +14,42 @@ const Header: FC<Props> = ({ theme, setTheme }) => {
   return (
     <header className={styles.header}>
       <div className={styles.items}>
-        <h1>devjobs</h1>
+        <NextLink href="/" passHref>
+          <a>devjobs</a>
+        </NextLink>
+
         <div className={styles.mode}>
           <svg className={styles.sun}>
             <circle r="5" cx="10" cy="10" fill="white" />
             <g className={styles.rays}>
               <g className={styles.vertical}>
-                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,0.62 V3" />
-                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,19.38 V17" />
+                <path
+                  stroke="white"
+                  strokeWidth="1.22"
+                  strokeLinecap="round"
+                  d="M10,0.62 V3"
+                />
+                <path
+                  stroke="white"
+                  strokeWidth="1.22"
+                  strokeLinecap="round"
+                  d="M10,19.38 V17"
+                />
               </g>
 
               <g className={styles.horizontal}>
-                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M0.8,10 H3" />
-                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M19.2,10 H17" />
+                <path
+                  stroke="white"
+                  strokeWidth="1.22"
+                  strokeLinecap="round"
+                  d="M0.8,10 H3"
+                />
+                <path
+                  stroke="white"
+                  strokeWidth="1.22"
+                  strokeLinecap="round"
+                  d="M19.2,10 H17"
+                />
               </g>
 
               <g className={styles["bl-to-tr"]}>
@@ -67,7 +91,9 @@ const Header: FC<Props> = ({ theme, setTheme }) => {
               setTimeout(() => setTheme(!theme), 200);
             }}
           >
-            <div className={clsx(styles.shown, styles[slider ? "dark" : "light"])}></div>
+            <div
+              className={clsx(styles.shown, styles[slider ? "dark" : "light"])}
+            ></div>
           </button>
 
           <svg className={styles.moon}>

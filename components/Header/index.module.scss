@@ -7,7 +7,7 @@
     .items {
       @apply flex justify-between items-center;
 
-      h1 {
+      a {
         @apply font-bold text-[31.5px] text-white leading-[32px];
       }
 
@@ -59,7 +59,7 @@
     border-bottom-right-radius: 140px;
 
     .items {
-      h1 {
+      a {
         @apply text-[45px];
       }
 
