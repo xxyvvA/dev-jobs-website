@@ -4,7 +4,8 @@
     @apply h-fit font-kumbh bg-[#F4F6F8];
 
     .main {
-      @apply px-[24px] relative top-[-40px] flex flex-col gap-[57px];
+      @apply px-[24px] max-w-[1920px] relative top-[-40px] flex flex-col gap-[57px];
+      margin: 0 auto;
 
       .searchBar {
         @apply p-4 rounded-[6px] pl-[24px] bg-white;
