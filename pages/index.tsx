@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { NextPage } from "next";
 import Head from "../components/Head";
 import styles from "../styles/Home.module.scss";
@@ -10,6 +10,9 @@ import data from "../data.json";
 const Home: NextPage = () => {
   const [theme, setTheme] = useState<boolean>(true);
   const [filter, setFilter] = useState<boolean>(false);
+
+  const [title, setTitle] = useState<string>("Scoot");
+  const [location, setLocation] = useState<string>("");
 
   return (
     <>
@@ -94,18 +97,20 @@ const Home: NextPage = () => {
 
           <div className={styles.content}>
             {data.map((post) => {
-              return (
-                <Post
-                  theme={theme}
-                  logo={post.logo}
-                  logobg={post.logoBackground}
-                  position={post.position}
-                  postedAt={post.postedAt}
-                  contract={post.contract}
-                  company={post.company}
-                  location={post.location}
-                />
-              );
+              if (post.company === title) {
+                return (
+                  <Post
+                    theme={theme}
+                    logo={post.logo}
+                    logobg={post.logoBackground}
+                    position={post.position}
+                    postedAt={post.postedAt}
+                    contract={post.contract}
+                    company={post.company}
+                    location={post.location}
+                  />
+                );
+              }
             })}
           </div>
         </main>
