@@ -59,7 +59,7 @@ const JobPage: NextPage<Props> = ({
               className={styles.logo}
               style={{ backgroundColor: logoBackground }}
             >
-              <img src={logo} />
+              <img src={logo} alt={`${company} logo`} />
             </div>
 
             <div className={styles.nameLink}>
