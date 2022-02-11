@@ -11,8 +11,9 @@ const Home: NextPage = () => {
   const [theme, setTheme] = useState<boolean>(true);
   const [filter, setFilter] = useState<boolean>(false);
 
-  const [title, setTitle] = useState<string>("Scoot");
-  const [location, setLocation] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [place, setPlace] = useState<string>("");
+  const [fullTime, setFullTime] = useState<boolean>(false);
 
   return (
     <>
@@ -35,13 +36,14 @@ const Home: NextPage = () => {
                 </g>
               </svg>
 
-              <input type="text" placeholder="Filter by title..." />
+              <input
+                type="text"
+                placeholder="Filter by title..."
+                onChange={(event) => setTitle(event.target.value)}
+              />
 
               <div className={styles.icons}>
-                <button
-                  className={styles.filterIcon}
-                  onClick={() => setFilter(true)}
-                ></button>
+                <button className={styles.filterIcon} onClick={() => setFilter(true)}></button>
                 <button className={styles.glassIcon}></button>
               </div>
             </div>
@@ -52,29 +54,31 @@ const Home: NextPage = () => {
                 setFilter(false);
               }}
             >
-              <div
-                className={styles.filter}
-                onClick={(event) => event.stopPropagation()}
-              >
+              <div className={styles.filter} onClick={(event) => event.stopPropagation()}>
                 <div className={styles.location}>
                   <svg className={styles.pin}>
                     <path d="M8.5,24 L15,15 A 8.2 8.2 0 1 0 2 15 Z" />
                     <circle r="3" cx="8.5" cy="10" />
                   </svg>
-                  <input type="text" placeholder="Filter by location..." />
+                  <input
+                    type="text"
+                    placeholder="Filter by location..."
+                    onChange={(event) => setPlace(event.target.value)}
+                  />
                 </div>
 
                 <div className={styles.fullTime}>
                   <div className={styles.check}>
-                    <input type="checkbox" id="full-time" />
+                    <input
+                      type="checkbox"
+                      id="full-time"
+                      checked={fullTime}
+                      onClick={() => setFullTime(!fullTime)}
+                    />
                     <label htmlFor="full-time">
                       <div className={styles.box}>
                         <svg className={styles.mark}>
-                          <path
-                            strokeWidth="2"
-                            fill="none"
-                            d="M6.5,13 L10,16.5 L18,8"
-                          />
+                          <path strokeWidth="2" fill="none" d="M6.5,13 L10,16.5 L18,8" />
                         </svg>
                       </div>
                       <p>
@@ -97,19 +101,37 @@ const Home: NextPage = () => {
 
           <div className={styles.content}>
             {data.map((post) => {
-              if (post.company === title) {
-                return (
-                  <Post
-                    theme={theme}
-                    logo={post.logo}
-                    logobg={post.logoBackground}
-                    position={post.position}
-                    postedAt={post.postedAt}
-                    contract={post.contract}
-                    company={post.company}
-                    location={post.location}
-                  />
-                );
+              if (
+                post.company.toLowerCase().includes(title.toLowerCase()) &&
+                post.location.toLowerCase().includes(place.toLowerCase())
+              ) {
+                if (fullTime && post.contract === "Full Time") {
+                  return (
+                    <Post
+                      theme={theme}
+                      logo={post.logo}
+                      logobg={post.logoBackground}
+                      position={post.position}
+                      postedAt={post.postedAt}
+                      contract={post.contract}
+                      company={post.company}
+                      location={post.location}
+                    />
+                  );
+                } else if (!fullTime) {
+                  return (
+                    <Post
+                      theme={theme}
+                      logo={post.logo}
+                      logobg={post.logoBackground}
+                      position={post.position}
+                      postedAt={post.postedAt}
+                      contract={post.contract}
+                      company={post.company}
+                      location={post.location}
+                    />
+                  );
+                }
               }
             })}
           </div>
