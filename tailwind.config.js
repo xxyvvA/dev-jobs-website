@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
       white: "#FFFFFF",
@@ -10,8 +13,8 @@ module.exports = {
       darkgrey: "#6E8098",
       grey: "#9DAEC2",
       lightgrey: "#F4F6F8",
-      button2: "rgba(89, 100, 224, 1)",
-      button2Hv: "rgba(89, 100, 224, 1)",
+      button2: "rgba(89, 100, 224, 0.1)",
+      button2Hv: "rgba(89, 100, 224, 0.35)",
       border: "rgba(110,128,152,0.2)",
       checkbox: "rgba(25, 32, 45, 0.1)",
       checkDark: "rgba(255,255,255,0.1)",

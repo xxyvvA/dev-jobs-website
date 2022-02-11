@@ -16,6 +16,104 @@
   .home.dark {
     @apply bg-black;
   }
+
+  .jobPage {
+    @apply font-kumbh bg-[#F4F6F8] min-h-full;
+
+    .main {
+      @apply px-[24px] flex flex-col gap-[24px] relative top-[-15px];
+
+      .company {
+        @apply relative flex flex-col items-center bg-white pb-[32px] pt-[50px] gap-[24px] rounded-[6px];
+
+        .logo {
+          @apply absolute top-[-25px] w-[50px] h-[50px] rounded-[15px] flex justify-center items-center;
+        }
+
+        .nameLink {
+          .name {
+            @apply font-bold text-[20px] leading-[25px] text-center;
+          }
+
+          .link {
+            @apply text-base text-darkgrey;
+          }
+        }
+
+        .site {
+          button {
+            @apply text-purple font-bold py-4 rounded-[5px] px-[20px] bg-button2 hover:bg-button2Hv;
+          }
+        }
+      }
+
+      .content {
+        @apply bg-white rounded-[6px] px-[24px] py-[40px] flex flex-col gap-8;
+
+        .jobHeader {
+          @apply flex flex-col gap-[50px];
+
+          .information {
+            @apply flex flex-col gap-2;
+
+            .infoTime {
+              @apply text-darkgrey  leading-4;
+            }
+
+            .position {
+              @apply text-[20px] leading-[25px] font-bold;
+            }
+
+            .location {
+              @apply text-[14px] font-bold text-purple;
+            }
+          }
+
+          .apply {
+            button {
+              @apply text-base font-bold text-white bg-purple hover:bg-lightpurple px-[97px] py-[14px] rounded-[5px];
+            }
+          }
+        }
+
+        .jobInfo {
+          @apply flex flex-col gap-[60px];
+
+          .description {
+            @apply text-base text-darkgrey leading-[26px];
+          }
+
+          .info {
+            @apply flex flex-col gap-[28px];
+
+            .section {
+              @apply font-bold text-[20px] leading-[20px];
+            }
+
+            .container {
+              @apply flex flex-col gap-8;
+
+              p {
+                @apply text-base text-darkgrey leading-[26px];
+              }
+
+              ul {
+                @apply flex flex-col gap-2;
+
+                li {
+                  @apply text-base leading-[26px] text-darkgrey flex gap-8;
+
+                  .bulletPoint {
+                    @apply min-w-[4px] relative top-[10px] min-h-[4px] bg-purple rounded-full self-start;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* ------------------------------ Screen: 768px ----------------------------- */
