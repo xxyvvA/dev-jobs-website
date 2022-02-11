@@ -24,6 +24,10 @@
           .shown {
             @apply w-[14px] duration-200 h-[14px] bg-purple rounded-full;
           }
+
+          .shown.dark {
+            @apply translate-x-[24px];
+          }
         }
 
         .slider:hover .shown {

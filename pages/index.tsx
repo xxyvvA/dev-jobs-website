@@ -26,7 +26,6 @@ const Home: NextPage = () => {
             theme={theme}
             setTitle={setTitle}
             setPlace={setPlace}
-            fullTime={fullTime}
             setFullTime={setFullTime}
             filter={filter}
             setFilter={setFilter}

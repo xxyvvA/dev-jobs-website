@@ -1,28 +1,32 @@
 import styles from "./index.module.scss";
 import clsx from "clsx";
-import { Dispatch, SetStateAction, FC } from "react";
+import { Dispatch, SetStateAction, FC, useRef, useState, SyntheticEvent } from "react";
 
 interface Props {
   theme: boolean;
   setTitle: Dispatch<SetStateAction<string>>;
   setPlace: Dispatch<SetStateAction<string>>;
-  fullTime: boolean;
   setFullTime: Dispatch<SetStateAction<boolean>>;
   filter: boolean;
   setFilter: Dispatch<SetStateAction<boolean>>;
 }
 
-const SearchBar: FC<Props> = ({
-  theme,
-  setTitle,
-  setPlace,
-  fullTime,
-  setFullTime,
-  filter,
-  setFilter,
-}) => {
+const SearchBar: FC<Props> = ({ theme, setTitle, setPlace, setFullTime, filter, setFilter }) => {
+  let iTitle = useRef("");
+  let iPlace = useRef("");
+  const [iTime, setItime] = useState(false);
+
   return (
-    <nav className={clsx(styles.searchBar, !theme && styles.dark)}>
+    <form
+      className={clsx(styles.searchBar, !theme && styles.dark)}
+      onSubmit={(event: SyntheticEvent) => {
+        event.preventDefault();
+        setFilter(false);
+        setTitle(iTitle.current);
+        setPlace(iPlace.current);
+        setFullTime(iTime);
+      }}
+    >
       <div className={styles.search}>
         <svg className={styles.magnifyingGlass}>
           <g className={styles.glass}>
@@ -40,20 +44,22 @@ const SearchBar: FC<Props> = ({
         <input
           type="text"
           placeholder="Filter by title..."
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(event) => (iTitle.current = event.target.value)}
         />
 
         <div className={styles.icons}>
-          <button className={styles.filterIcon} onClick={() => setFilter(true)}></button>
-          <button className={styles.glassIcon}></button>
+          <button
+            type="button"
+            className={styles.filterIcon}
+            onClick={() => setFilter(true)}
+          ></button>
+          <button type="submit" className={styles.glassIcon}></button>
         </div>
       </div>
 
       <div
         className={clsx(styles.container, filter && styles.open)}
-        onClick={() => {
-          setFilter(false);
-        }}
+        onClick={() => setFilter(false)}
       >
         <div className={styles.filter} onClick={(event) => event.stopPropagation()}>
           <div className={styles.location}>
@@ -64,7 +70,7 @@ const SearchBar: FC<Props> = ({
             <input
               type="text"
               placeholder="Filter by location..."
-              onChange={(event) => setPlace(event.target.value)}
+              onChange={(event) => (iPlace.current = event.target.value)}
             />
           </div>
 
@@ -73,8 +79,8 @@ const SearchBar: FC<Props> = ({
               <input
                 type="checkbox"
                 id="full-time"
-                checked={fullTime}
-                onClick={() => setFullTime(!fullTime)}
+                checked={iTime}
+                onClick={() => setItime(!iTime)}
               />
               <label htmlFor="full-time">
                 <div className={styles.box}>
@@ -87,18 +93,13 @@ const SearchBar: FC<Props> = ({
                 </p>
               </label>
             </div>
-            <button
-              className={styles.search}
-              onClick={() => {
-                setFilter(false);
-              }}
-            >
+            <button type="submit" className={styles.search}>
               Search
             </button>
           </div>
         </div>
       </div>
-    </nav>
+    </form>
   );
 };
 
