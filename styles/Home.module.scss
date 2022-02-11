@@ -179,6 +179,80 @@
       }
     }
   }
+
+  .jobPage {
+    .main {
+      @apply px-[40px] top-[-40px];
+
+      .company {
+        @apply py-0 flex-row relative gap-[40px];
+
+        .logo {
+          @apply static rounded-none w-[140px] h-[140px];
+          border-bottom-left-radius: 6px;
+
+          img {
+            @apply w-[81px];
+          }
+        }
+
+        .nameLink {
+          @apply gap-2;
+          .name {
+            @apply text-left text-[24px] leading-[30px];
+          }
+
+          .link {
+            @apply leading-4;
+          }
+        }
+
+        .site {
+          @apply absolute right-[40px];
+
+          button {
+            @apply leading-4;
+          }
+        }
+      }
+
+      .content {
+        @apply p-[48px];
+
+        .jobHeader {
+          @apply flex-row items-center justify-between gap-0;
+
+          .information {
+            .position {
+              @apply text-[28px] leading-[34px];
+            }
+
+            .location {
+              @apply leading-[17px];
+            }
+          }
+
+          .apply {
+            button {
+              @apply text-base px-[28.5px] py-4;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .jobPage.dark {
+    .main {
+      .company {
+        .site {
+          button {
+            @apply text-white bg-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.25)];
+          }
+        }
+      }
+    }
+  }
 }
 
 /* ----------------------------- Screen: 1440px ----------------------------- */
