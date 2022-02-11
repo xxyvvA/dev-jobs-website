@@ -113,6 +113,26 @@
         }
       }
     }
+
+    .footer {
+      @apply p-[24px] bg-white rounded-[6px];
+
+      .container {
+        @apply flex justify-center;
+
+        .info {
+          @apply absolute hidden;
+        }
+
+        a {
+          @apply w-full max-w-[400px];
+
+          button {
+            @apply w-full bg-purple py-4 font-bold text-white rounded-[5px];
+          }
+        }
+      }
+    }
   }
 
   .jobPage.dark {
@@ -161,6 +181,17 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+
+    .footer {
+      @apply bg-blue;
+      .container {
+        .info {
+          .position {
+            @apply text-white;
           }
         }
       }
@@ -240,6 +271,34 @@
         }
       }
     }
+
+    .footer {
+      @apply px-[40px] py-[22px];
+
+      .container {
+        @apply flex justify-between items-center;
+
+        .info {
+          @apply block static flex flex-col gap-2;
+
+          .position {
+            @apply text-[20px] font-bold leading-[25px];
+          }
+
+          .text {
+            @apply text-darkgrey;
+          }
+        }
+
+        a {
+          @apply w-[unset] max-w-none;
+
+          button {
+            @apply w-[unset] py-[14px] px-[28px] hover:bg-lightpurple;
+          }
+        }
+      }
+    }
   }
 
   .jobPage.dark {
@@ -269,6 +328,10 @@
 
   .jobPage {
     .main {
+      @apply px-[355px];
+    }
+
+    .footer {
       @apply px-[355px];
     }
   }

@@ -128,6 +128,19 @@ const JobPage: NextPage<Props> = ({
             </div>
           </div>
         </main>
+
+        <footer className={styles.footer}>
+          <div className={styles.container}>
+            <div className={styles.info}>
+              <p className={styles.position}>{position}</p>
+              <p className={styles.text}>So Digital Inc.</p>
+            </div>
+
+            <a href={apply}>
+              <button>Apply Now</button>
+            </a>
+          </div>
+        </footer>
       </div>
     </>
   );
