@@ -101,8 +101,8 @@ const JobPage: NextPage<Props> = ({
                 <div className={styles.container}>
                   <p>{requirements.content}</p>
                   <ul>
-                    {requirements.items.map((item) => (
-                      <li>
+                    {requirements.items.map((item, index) => (
+                      <li key={index}>
                         <span className={styles.bulletPoint}></span>
                         {item}
                       </li>
@@ -116,8 +116,8 @@ const JobPage: NextPage<Props> = ({
                 <div className={styles.container}>
                   <p>{role.content}</p>
                   <ul>
-                    {role.items.map((item) => (
-                      <li>
+                    {role.items.map((item, index) => (
+                      <li key={index + 10}>
                         <span className={styles.bulletPoint}></span>
                         {item}
                       </li>
