@@ -40,6 +40,7 @@ const Home: NextPage = () => {
                 if (fullTime && post.contract === "Full Time") {
                   return (
                     <Post
+                      id={post.id}
                       theme={theme}
                       logo={post.logo}
                       logobg={post.logoBackground}
@@ -53,6 +54,7 @@ const Home: NextPage = () => {
                 } else if (!fullTime) {
                   return (
                     <Post
+                      id={post.id}
                       theme={theme}
                       logo={post.logo}
                       logobg={post.logoBackground}

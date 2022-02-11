@@ -1,8 +1,10 @@
 import { FC } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
+import NextLink from "next/link";
 
 interface Props {
+  id: number;
   theme: boolean;
   logo: string;
   logobg: string;
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const Post: FC<Props> = ({
+  id,
   theme,
   logo,
   logobg,
@@ -27,28 +30,30 @@ const Post: FC<Props> = ({
   const href = link.map((item) => (item === " " ? "+" : item)).join("");
 
   return (
-    <div className={clsx(styles.container, !theme && styles.dark)}>
-      <div className={styles.logo} style={{ backgroundColor: logobg }}>
-        <img src={logo} />
-      </div>
+    <NextLink href={`/${id}`} passHref>
+      <a className={clsx(styles.container, !theme && styles.dark)}>
+        <div className={styles.logo} style={{ backgroundColor: logobg }}>
+          <img src={logo} />
+        </div>
 
-      <div className={styles.information}>
-        <p>
-          {postedAt} &#x2022; {contract}
-        </p>
+        <div className={styles.information}>
+          <p>
+            {postedAt} &#x2022; {contract}
+          </p>
 
-        <p className={styles.position}>{position}</p>
+          <p className={styles.position}>{position}</p>
 
-        <p className={styles.company}>{company}</p>
-      </div>
+          <p className={styles.company}>{company}</p>
+        </div>
 
-      <a
-        className={styles.location}
-        href={`https://www.google.com/search?client=?-b-1-d&q=${href}`}
-      >
-        {location}
+        <a
+          className={styles.location}
+          href={`https://www.google.com/search?client=?-b-1-d&q=${href}`}
+        >
+          {location}
+        </a>
       </a>
-    </div>
+    </NextLink>
   );
 };
 
