@@ -51,22 +51,17 @@ const JobPage: NextPage<Props> = ({
     <>
       <Head title={`${company} - ${position}`} />
       <div className={clsx(styles.jobPage, !theme && styles.dark)}>
-        <Header theme={theme} setTheme={setTheme} />
+        <Header setTheme={setTheme} />
 
         <main className={styles.main}>
           <div className={styles.company}>
-            <div
-              className={styles.logo}
-              style={{ backgroundColor: logoBackground }}
-            >
+            <div className={styles.logo} style={{ backgroundColor: logoBackground }}>
               <img src={logo} alt={`${company} logo`} />
             </div>
 
             <div className={styles.nameLink}>
               <p className={styles.name}>{company}</p>
-              <a className={styles.link} href={website}>{`${name
-                .join("")
-                .toLowerCase()}.com`}</a>
+              <a className={styles.link} href={website}>{`${name.join("").toLowerCase()}.com`}</a>
             </div>
 
             <a className={styles.site} href={website}>

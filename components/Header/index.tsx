@@ -1,15 +1,19 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 import NextLink from "next/link";
 
 interface Props {
-  theme: boolean;
   setTheme: Dispatch<SetStateAction<boolean>>;
 }
 
-const Header: FC<Props> = ({ theme, setTheme }) => {
-  const [slider, setSlider] = useState<boolean>(false);
+const Header: FC<Props> = ({ setTheme }) => {
+  const [slider, setSlider] = useState<null | boolean>(null);
+
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme") === "true");
+    setSlider(localStorage.getItem("theme") === "false");
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -18,38 +22,18 @@ const Header: FC<Props> = ({ theme, setTheme }) => {
           <a>devjobs</a>
         </NextLink>
 
-        <div className={styles.mode}>
+        <div className={clsx(styles.mode, slider === null && styles.hidden)}>
           <svg className={styles.sun}>
             <circle r="5" cx="10" cy="10" fill="white" />
             <g className={styles.rays}>
               <g className={styles.vertical}>
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M10,0.62 V3"
-                />
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M10,19.38 V17"
-                />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,0.62 V3" />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M10,19.38 V17" />
               </g>
 
               <g className={styles.horizontal}>
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M0.8,10 H3"
-                />
-                <path
-                  stroke="white"
-                  strokeWidth="1.22"
-                  strokeLinecap="round"
-                  d="M19.2,10 H17"
-                />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M0.8,10 H3" />
+                <path stroke="white" strokeWidth="1.22" strokeLinecap="round" d="M19.2,10 H17" />
               </g>
 
               <g className={styles["bl-to-tr"]}>
@@ -88,12 +72,17 @@ const Header: FC<Props> = ({ theme, setTheme }) => {
             className={styles.slider}
             onClick={() => {
               setSlider(!slider);
-              setTimeout(() => setTheme(!theme), 200);
+              setTimeout(
+                () =>
+                  setTheme((theme) => {
+                    localStorage.setItem("theme", `${!theme}`);
+                    return !theme;
+                  }),
+                200
+              );
             }}
           >
-            <div
-              className={clsx(styles.shown, styles[slider ? "dark" : "light"])}
-            ></div>
+            <div className={clsx(styles.shown, styles[slider ? "dark" : "light"])}></div>
           </button>
 
           <svg className={styles.moon}>

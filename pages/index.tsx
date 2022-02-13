@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "../components/Head";
 import styles from "../styles/Home.module.scss";
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     <>
       <Head title={"devjobs"} />
       <div className={clsx(styles.home, !theme && styles.dark)}>
-        <Header theme={theme} setTheme={setTheme} />
+        <Header setTheme={setTheme} />
         <main className={styles.main}>
           <SearchBar
             theme={theme}
