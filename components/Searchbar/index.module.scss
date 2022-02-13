@@ -18,7 +18,11 @@
         @apply flex gap-[10px];
 
         button {
-          @apply w-[48px] h-[48px] bg-purple rounded-[5px];
+          @apply w-[48px] h-[48px] rounded-[5px] flex justify-center items-center;
+        }
+
+        .glassIcon {
+          @apply bg-purple;
         }
       }
     }

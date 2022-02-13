@@ -48,12 +48,12 @@ const SearchBar: FC<Props> = ({ theme, setTitle, setPlace, setFullTime, filter, 
         />
 
         <div className={styles.icons}>
-          <button
-            type="button"
-            className={styles.filterIcon}
-            onClick={() => setFilter(true)}
-          ></button>
-          <button type="submit" className={styles.glassIcon}></button>
+          <button type="button" className={styles.filterIcon} onClick={() => setFilter(true)}>
+            <img src="img/mobile/icon-filter.svg" />
+          </button>
+          <button type="submit" className={styles.glassIcon}>
+            <img src="img/mobileSearch.svg" />
+          </button>
         </div>
       </div>
 
